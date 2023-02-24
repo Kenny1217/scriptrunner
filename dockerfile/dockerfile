@@ -1,0 +1,26 @@
+# Base image
+FROM debian:bullseye
+
+# Container labels
+LABEL author="Kenny Morris"
+LABEL datecreated="2/23/2023"
+LABEL description="Container to run scripts"
+LABEL version="1.0"
+
+# Create user
+RUN useradd -u 1001 -d /home/runner runner
+
+# Update packages
+RUN apt-get update
+
+# Install packages
+RUN apt install -y git \
+    curl \
+    jq \
+    zip
+
+# Switch user 
+USER runner
+
+# Set entrypoint
+ENTRYPOINT ["/bin/bash"]
