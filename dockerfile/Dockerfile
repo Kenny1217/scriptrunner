@@ -16,6 +16,10 @@ RUN apt update && apt install -y --no-install-recommends \
     git \
     && rm -rf /var/lib/apt/lists/*
 
+# Copy scripts to container
+COPY "./bash_utilities" "${SCRIPTRUNNER_HOME}/bash_utilities"
+COPY "./python_utilities" "${SCRIPTRUNNER_HOME}/python_utilities"
+
 # Switch to non-root user
 USER 1001
 
