@@ -1,0 +1,6 @@
+[submodule "dockerfile/bash_utilities"]
+	path = dockerfile/bash_utilities
+	url = git@github.com:Kenny1217/bash_utilities.git
+[submodule "dockerfile/python_utilities"]
+	path = dockerfile/python_utilities
+	url = git@github.com:Kenny1217/python_utilities.git
