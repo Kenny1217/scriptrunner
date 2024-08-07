@@ -14,6 +14,7 @@ RUN useradd --shell /bin/bash -d ${SCRIPTRUNNER_HOME} -m -u 1001 ${SCRIPTRUNNER_
 RUN apt update && apt install -y --no-install-recommends \
     curl \
     git \
+    s3cmd \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy scripts to container
