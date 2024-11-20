@@ -15,6 +15,11 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
+COPY bash-utilities "$SCRIPTRUNNER_HOME/bash-utilities"
+
+RUN chown -R "$SCRIPTRUNNER_USER:$SCRIPTRUNNER_USER" "$SCRIPTRUNNER_HOME/bash-utilities" && \
+    chmod -R 755 "$SCRIPTRUNNER_HOME/bash-utilities"
+
 USER "$SCRIPTRUNNER_USER"
 
 WORKDIR "$SCRIPTRUNNER_HOME"
