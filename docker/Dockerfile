@@ -21,7 +21,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy submodules to docker image
-COPY "./bash-utilities/" "$SCRIPTRUNNER_USER_HOME/bash-utilities"
+COPY "./docker/bash-utilities/" "$SCRIPTRUNNER_USER_HOME/bash-utilities"
 
 # Change directory ownership
 RUN chown -R "$SCRIPTRUNNER_USER:" "$SCRIPTRUNNER_USER_HOME"
