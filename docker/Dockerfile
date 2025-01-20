@@ -14,10 +14,7 @@ RUN useradd --shell /bin/bash -d "$SCRIPTRUNNER_USER_HOME" -m -u 1001 "$SCRIPTRU
 RUN apt-get update && apt-get upgrade
 
 # Update and install packages on docker image
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    curl \
-    git \
-    s3cmd \
+RUN apt-get update && apt-get install -y --no-install-recommends git \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
