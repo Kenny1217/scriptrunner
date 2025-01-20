@@ -16,7 +16,7 @@ RUN apt-get update && apt-get upgrade
 # Update and install packages on docker image
 RUN apt-get update && apt-get install -y --no-install-recommends git \
     && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/
 
 # Copy submodules to docker image
 COPY "./docker/bash-utilities/" "$SCRIPTRUNNER_USER_HOME/bash-utilities"
