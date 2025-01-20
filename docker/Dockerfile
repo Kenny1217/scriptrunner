@@ -10,13 +10,13 @@ USER root
 # Create a non-root user
 RUN useradd --shell /bin/bash -d "$SCRIPTRUNNER_USER_HOME" -m -u 1001 "$SCRIPTRUNNER_USER"
 
-# Update and upgrade packages on docker image
-RUN apt-get update && apt-get upgrade
-
 # Update and install packages on docker image
-RUN apt-get update && apt-get install -y --no-install-recommends git \
+RUN apt-get update && apt-get upgrade && apt-get install -y --no-install-recommends \
+    curl \
+    git \
+    s3cmd \
     && apt-get clean \
-    && rm -rf /var/lib/apt/lists/
+    && rm -rf /var/lib/apt/lists/*
 
 # Copy submodules to docker image
 COPY "./docker/bash-utilities/" "$SCRIPTRUNNER_USER_HOME/bash-utilities"
